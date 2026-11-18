@@ -1,0 +1,46 @@
+/* Labbayk legal pages — shared styles. Warm neutral ground, amber brand accent, AR/EN toggle, light+dark. */
+:root{
+  --bg:#fbfaf8; --surface:#ffffff; --fg:#1c1a16; --muted:#6c675e;
+  --border:#e7e2da; --accent:#e2630d; --accent-soft:#fbe9d8;
+  --ar:'Cairo','Noto Kufi Arabic',system-ui,sans-serif;
+  --en:'Inter',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#15130e; --surface:#1e1b15; --fg:#f2eee7; --muted:#a7a194;
+  --border:#332e25; --accent:#ff8c40; --accent-soft:#3a2a18; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#15130e; --surface:#1e1b15; --fg:#f2eee7; --muted:#a7a194;
+  --border:#332e25; --accent:#ff8c40; --accent-soft:#3a2a18; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--en);line-height:1.7}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));padding-block:40px 72px}
+header{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:22px;margin-bottom:8px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.logo{width:40px;height:40px;border-radius:11px;background:var(--accent);color:#fff;font-weight:700;font-size:20px;display:grid;place-items:center;flex:0 0 auto;text-decoration:none}
+.brand b{font-size:19px;letter-spacing:.2px}
+.brand span{display:block;font-size:12.5px;color:var(--muted)}
+.toggle{display:flex;border:1px solid var(--border);border-radius:999px;overflow:hidden;background:var(--surface)}
+.toggle button{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;font-weight:600;font-size:13.5px;padding:7px 15px;cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.meta{font-size:13px;color:var(--muted);margin:18px 0 28px}
+h1{font-size:27px;line-height:1.25;margin:26px 0 6px}
+h2{font-size:18px;margin:34px 0 8px;padding-top:6px}
+p{margin:10px 0}
+ul{margin:10px 0;padding-inline-start:22px}
+li{margin:6px 0}
+a{color:var(--accent)}
+.note{background:var(--surface);border:1px solid var(--border);border-inline-start:3px solid var(--accent);border-radius:10px;padding:14px 16px;margin:16px 0;font-size:14.5px}
+.email{font-weight:700;color:var(--fg);background:var(--accent-soft);border-radius:5px;padding:2px 8px;white-space:nowrap}
+.cards{display:grid;gap:16px;grid-template-columns:1fr 1fr;margin-top:26px}
+.card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;text-decoration:none;color:var(--fg)}
+.card:hover{border-color:var(--accent)}
+.card b{display:block;font-size:16px;margin-bottom:6px}
+.card small{color:var(--muted);font-size:13px;line-height:1.5;display:block}
+footer{margin-top:40px;border-top:1px solid var(--border);padding-top:18px;font-size:13px;color:var(--muted)}
+section[lang="ar"]{direction:rtl;text-align:right;font-family:var(--ar)}
+section[lang="en"]{direction:ltr;text-align:left}
+[hidden]{display:none!important}
+@media (max-width:520px){.cards{grid-template-columns:1fr}}
